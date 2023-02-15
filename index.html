@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Lato&family=Open+Sans:wght@600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="title-featured-items">
+        <h2 class="heading-featured-items">
+            Fetured Items</h2>
+        <div class="subtitle-feature-items">Shop for items based on what we featured in this week</div>
+    </div>
+    
+
+    <section class="block-featured-items">
+        
+    </section>
+
+
+    <script src="data.js"></script>
+    <script>
+
+        const contentEl = document.querySelector('.block-featured-items');
+        const data = JSON.parse(dataGoods);
+
+        data.forEach(element => {
+            const apiEl = document.createElement('div');
+            apiEl.classList.add('api');
+            contentEl.appendChild(apiEl);
+
+            const imageApi = document.createElement('img');
+            imageApi.classList.add('imageApi');
+            imageApi.src = element.imagelink;
+            apiEl.appendChild(imageApi);
+            
+            const titleContentEl = document.createElement('h2');
+            titleContentEl.textContent = element.title;
+            titleContentEl.classList.add('titleCont');
+            apiEl.appendChild(titleContentEl);
+
+            const discriptionApi = document.createElement('div');
+            discriptionApi.textContent = element.discription;
+            discriptionApi.classList.add('disc');
+            apiEl.appendChild(discriptionApi);
+
+            const priceApi = document.createElement('div');
+            priceApi.textContent = element.price;
+            priceApi.classList.add('price');
+            apiEl.appendChild(priceApi);
+
+            const currencyApi = document.createElement('span');
+            currencyApi.textContent = element.currency;
+            currencyApi.classList.add('currency');
+            priceApi.prepend(currencyApi);
+        });
+        imageApi=document.querySelectorAll('img');
+        imageApi[1].classList.add('imageApi2');
+    </script>
+</body>
+
+</html>
